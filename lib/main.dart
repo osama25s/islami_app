@@ -4,6 +4,7 @@ import 'package:islami/home_screen.dart';
 void main() {
   runApp(MyApp());
 }
+//fgdfgdfgdfg
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,9 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        Home_Screen.routname:(context) => Home_Screen(),
+        Home_Screen.routname: (context) => Home_Screen(),
       },
-      
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:islami/home_screen.dart';
 void main() {
   runApp(MyApp());
 }
-//fgdfgdfgdfg
 
 class MyApp extends StatelessWidget {
   @override

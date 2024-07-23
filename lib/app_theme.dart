@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -9,11 +11,46 @@ class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.transparent,
+    textTheme: TextTheme(
+        headlineSmall: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+          color: black,
+        ),
+        titleLarge: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
+          color: black,
+        )),
+
+
+
+
+
+
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
-      selectedItemColor:black,
+      selectedItemColor: black,
       unselectedItemColor: white,
-      backgroundColor: lightprimary
+      backgroundColor: lightprimary,
+    ),
+
+
+
+
+
+
+
+
+
+    appBarTheme: AppBarTheme(
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      titleTextStyle: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.w700,
+        color: black,
+      ),
     ),
   );
   static ThemeData darkTheme = ThemeData();

@@ -16,13 +16,13 @@ class Home_Screen extends StatefulWidget {
 
 class _Home_ScreenState extends State<Home_Screen> {
   int currentindex = 0;
-List<Widget> tabs = [
-QuranTab(),
-HadethTab(),
-SebhaTab(),
-RadioTab(),
-SettingsTab()
-];
+  List<Widget> tabs = [
+    QuranTab(),
+    HadethTab(),
+    SebhaTab(),
+    RadioTab(),
+    SettingsTab()
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,6 +30,9 @@ SettingsTab()
             image: DecorationImage(
                 image: AssetImage('assets/images/default_bg.png'))),
         child: Scaffold(
+          appBar: AppBar(
+            title: Text('إسلامي'),
+          ),
           backgroundColor: Colors.transparent,
           body: tabs[currentindex],
           bottomNavigationBar: BottomNavigationBar(

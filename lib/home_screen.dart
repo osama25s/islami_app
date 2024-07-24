@@ -28,7 +28,7 @@ class _Home_ScreenState extends State<Home_Screen> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/default_bg.png'))),
+                image: AssetImage('assets/images/default_bg.png'),fit: BoxFit.cover)),
         child: Scaffold(
           appBar: AppBar(
             title: Text('إسلامي'),

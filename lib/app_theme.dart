@@ -22,26 +22,16 @@ class AppTheme {
           fontWeight: FontWeight.w400,
           color: black,
         )),
-iconTheme: IconThemeData(
-          color:lightprimary ,
-          size: 24.0, 
-        ),
-        
+    iconTheme: IconThemeData(
+      color: lightprimary,
+      size: 24.0,
+    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: black,
       unselectedItemColor: white,
       backgroundColor: lightprimary,
     ),
-
-
-
-
-
-
-
-
-
     appBarTheme: AppBarTheme(
       centerTitle: true,
       backgroundColor: Colors.transparent,

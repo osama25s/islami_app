@@ -10,6 +10,7 @@ class SebhaTab extends StatefulWidget {
 class _SebhaTabState extends State<SebhaTab> {
   int tasbeh = 0;
   double degree = 28.76;
+  String lable = 'سبحان الله';
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,12 +34,20 @@ class _SebhaTabState extends State<SebhaTab> {
                 child: GestureDetector(
                   onTap: () {
                     tasbeh++;
+                    if (tasbeh == 34) {
+                      lable = 'الحمد لله';
+                    } else if (tasbeh == 67) {
+                      lable = 'الله اكبر';
+                    } else if (tasbeh == 100) {
+                      tasbeh = 0;
+                      lable = 'سبحان الله';
+                    }
+
                     degree += 10.03;
                     setState(() {});
                   },
                   child: RotationTransition(
                     turns: AlwaysStoppedAnimation(degree),
-                    //28.76
                     child: Image.asset(
                       'assets/images/body_sebha_logo.png',
                       height: MediaQuery.of(context).size.height / 4,
@@ -60,7 +69,7 @@ class _SebhaTabState extends State<SebhaTab> {
             alignment: Alignment.center,
             margin: EdgeInsets.symmetric(
                 vertical: MediaQuery.of(context).size.height / 30),
-            height: MediaQuery.of(context).size.height / 11,
+            height: MediaQuery.of(context).size.height / 10.5,
             width: MediaQuery.of(context).size.width / 6,
             decoration: BoxDecoration(
               color: AppTheme.lightprimary.withOpacity(0.6),
@@ -80,7 +89,7 @@ class _SebhaTabState extends State<SebhaTab> {
               borderRadius: BorderRadius.circular(25),
             ),
             child: Text(
-              'سبحان الله',
+              lable,
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w400,

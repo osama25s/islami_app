@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/tabs/quran/quran_details_screen.dart';
+import 'package:islami/tabs/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> suras = [
@@ -241,6 +243,7 @@ class QuranTab extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return Column(
       children: [
         Image.asset(
@@ -251,7 +254,9 @@ class QuranTab extends StatelessWidget {
           height: 16,
         ),
         Divider(
-          color: AppTheme.lightprimary,
+          color: settingsProvider.themeMode == ThemeMode.light
+              ? AppTheme.lightprimary
+              : AppTheme.gold,
           thickness: 2,
           height: 0,
         ),
@@ -266,7 +271,9 @@ class QuranTab extends StatelessWidget {
                 ),
               ),
               VerticalDivider(
-                color: AppTheme.lightprimary,
+                color: settingsProvider.themeMode == ThemeMode.light
+                    ? AppTheme.lightprimary
+                    : AppTheme.gold,
                 thickness: 2,
               ),
               Expanded(
@@ -280,7 +287,9 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Divider(
-          color: AppTheme.lightprimary,
+          color: settingsProvider.themeMode == ThemeMode.light
+              ? AppTheme.lightprimary
+              : AppTheme.gold,
           thickness: 2,
           height: 0,
         ),
@@ -306,7 +315,9 @@ class QuranTab extends StatelessWidget {
                           ),
                         ),
                         VerticalDivider(
-                          color: AppTheme.lightprimary,
+                          color: settingsProvider.themeMode == ThemeMode.light
+                              ? AppTheme.lightprimary
+                              : AppTheme.gold,
                           thickness: 2,
                         ),
                         Expanded(

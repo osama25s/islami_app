@@ -10,6 +10,8 @@ class AppTheme {
   static const Color gold = Color(0xffFACC1D);
 
   static ThemeData lightTheme = ThemeData(
+  
+    primaryColor: lightprimary,
     scaffoldBackgroundColor: Colors.transparent,
     textTheme: TextTheme(
         headlineSmall: TextStyle(
@@ -33,6 +35,7 @@ class AppTheme {
       backgroundColor: lightprimary,
     ),
     appBarTheme: AppBarTheme(
+      foregroundColor: black,
       centerTitle: true,
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -41,6 +44,50 @@ class AppTheme {
         color: black,
       ),
     ),
+    switchTheme: SwitchThemeData(
+        trackColor: MaterialStatePropertyAll(lightprimary),
+        thumbColor: MaterialStatePropertyAll(black)),
   );
-  static ThemeData darkTheme = ThemeData();
+
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  static ThemeData darkTheme = ThemeData(
+    
+    primaryColor: darkprimary,
+    scaffoldBackgroundColor: Colors.transparent,
+    textTheme: TextTheme(
+        headlineSmall: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+          color: white,
+        ),
+        titleLarge: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
+          color: gold,
+        )),
+    iconTheme: IconThemeData(
+      color: darkprimary,
+      size: 24.0,
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: gold,
+      unselectedItemColor: white,
+      backgroundColor: darkprimary,
+    ),
+    appBarTheme: AppBarTheme(
+      foregroundColor: white,
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+      titleTextStyle: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.w700,
+        color: white,
+      ),
+    ),
+    switchTheme: SwitchThemeData(
+      trackColor: MaterialStatePropertyAll(AppTheme.darkprimary),
+    ),
+  );
 }

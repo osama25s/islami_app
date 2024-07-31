@@ -5,7 +5,9 @@ import 'package:islami/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami/tabs/quran/quran_tab.dart';
 import 'package:islami/tabs/radio/radio_tab.dart';
 import 'package:islami/tabs/sebha/sebha_tab.dart';
+import 'package:islami/tabs/settings/settings_provider.dart';
 import 'package:islami/tabs/settings/settings_tab.dart';
+import 'package:provider/provider.dart';
 
 class Home_Screen extends StatefulWidget {
   static const String routname = '/';
@@ -25,10 +27,13 @@ class _Home_ScreenState extends State<Home_Screen> {
   ];
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/default_bg.png'),
+                image: AssetImage(settingsProvider.themeMode == ThemeMode.light
+                    ? 'assets/images/default_bg.png'
+                    : 'assets/images/dark_bg.png'),
                 fit: BoxFit.cover)),
         child: Scaffold(
           appBar: AppBar(

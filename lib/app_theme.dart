@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color lightprimary = Color(0xffB7935F);
@@ -10,16 +11,15 @@ class AppTheme {
   static const Color gold = Color(0xffFACC1D);
 
   static ThemeData lightTheme = ThemeData(
-  
     primaryColor: lightprimary,
     scaffoldBackgroundColor: Colors.transparent,
     textTheme: TextTheme(
-        headlineSmall: TextStyle(
+        headlineSmall: GoogleFonts.elMessiri(
           fontSize: 25,
           fontWeight: FontWeight.w400,
           color: black,
         ),
-        titleLarge: TextStyle(
+        titleLarge: GoogleFonts.inter(
           fontSize: 20,
           fontWeight: FontWeight.w400,
           color: black,
@@ -38,7 +38,7 @@ class AppTheme {
       foregroundColor: black,
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      titleTextStyle: TextStyle(
+      titleTextStyle: GoogleFonts.elMessiri(
         fontSize: 30,
         fontWeight: FontWeight.w700,
         color: black,
@@ -52,16 +52,15 @@ class AppTheme {
   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   static ThemeData darkTheme = ThemeData(
-    
     primaryColor: darkprimary,
     scaffoldBackgroundColor: Colors.transparent,
     textTheme: TextTheme(
-        headlineSmall: TextStyle(
+        headlineSmall: GoogleFonts.elMessiri(
           fontSize: 25,
           fontWeight: FontWeight.w400,
           color: white,
         ),
-        titleLarge: TextStyle(
+        titleLarge: GoogleFonts.inter(
           fontSize: 20,
           fontWeight: FontWeight.w400,
           color: gold,
@@ -80,7 +79,7 @@ class AppTheme {
       foregroundColor: white,
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      titleTextStyle: TextStyle(
+      titleTextStyle: GoogleFonts.elMessiri(
         fontSize: 30,
         fontWeight: FontWeight.w700,
         color: white,

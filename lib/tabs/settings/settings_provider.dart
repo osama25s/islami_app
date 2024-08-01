@@ -9,8 +9,8 @@ class SettingsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void ChangeLanguage(String lang) {
-    language = lang;
+  void ChangeLanguage(String selectedLanguage) {
+    language = selectedLanguage;
     notifyListeners();
   }
 }

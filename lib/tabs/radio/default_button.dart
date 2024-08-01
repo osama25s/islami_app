@@ -1,7 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:islami/app_theme.dart';
+import 'package:islami/tabs/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class Default_Button extends StatelessWidget {
   IconData icon;
@@ -11,11 +11,14 @@ class Default_Button extends StatelessWidget {
       {required this.icon, required this.size, required this.onpress});
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return IconButton(
       icon: Icon(
         icon,
         size: size,
-        color: AppTheme.lightprimary,
+        color: settingsProvider.themeMode == ThemeMode.light
+            ? AppTheme.lightprimary
+            : AppTheme.gold,
       ),
       onPressed: onpress,
     );

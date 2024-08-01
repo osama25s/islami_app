@@ -6,7 +6,7 @@ import 'package:islami/tabs/hadeth/hadeth_details_screen.dart';
 import 'package:islami/tabs/settings/settings_provider.dart';
 import 'package:islami/wigets/loading_indicator.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HadethTab extends StatefulWidget {
   @override
   State<HadethTab> createState() => _HadethTabState();
@@ -35,7 +35,7 @@ class _HadethTabState extends State<HadethTab> {
           height: 0,
         ),
         Text(
-          'الأحاديث',
+          AppLocalizations.of(context)!.hadethname,
           style: Theme.of(context).textTheme.headlineSmall,
           textAlign: TextAlign.center,
         ),
@@ -64,7 +64,7 @@ class _HadethTabState extends State<HadethTab> {
                     },
                     child: Text(
                       ahadeth[index].title,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context).textTheme.titleLarge,
                       textAlign: TextAlign.center,
                     ),
                   ),

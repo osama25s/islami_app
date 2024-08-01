@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islami/app_theme.dart';
-
+import 'package:islami/tabs/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SebhaTab extends StatefulWidget {
   @override
   State<SebhaTab> createState() => _SebhaTabState();
@@ -13,6 +15,7 @@ class _SebhaTabState extends State<SebhaTab> {
   String lable = 'سبحان الله';
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     return Center(
       child: Column(
         children: [
@@ -23,7 +26,9 @@ class _SebhaTabState extends State<SebhaTab> {
                 padding: EdgeInsets.only(
                     left: MediaQuery.of(context).size.width / 10),
                 child: Image.asset(
-                  'assets/images/head_sebha_logo.png',
+                  settingsProvider.themeMode == ThemeMode.light
+                      ? 'assets/images/head_sebha_logo.png'
+                      : 'assets/images/head_sebha_dark.png',
                   height: MediaQuery.of(context).size.height / 10,
                   width: MediaQuery.of(context).size.width / 4,
                 ),
@@ -49,7 +54,9 @@ class _SebhaTabState extends State<SebhaTab> {
                   child: RotationTransition(
                     turns: AlwaysStoppedAnimation(degree),
                     child: Image.asset(
-                      'assets/images/body_sebha_logo.png',
+                      settingsProvider.themeMode == ThemeMode.light
+                          ? 'assets/images/body_sebha_logo.png'
+                          : 'assets/images/body_sebha_dark.png',
                       height: MediaQuery.of(context).size.height / 4,
                       width: MediaQuery.of(context).size.width / 2,
                     ),
@@ -62,7 +69,7 @@ class _SebhaTabState extends State<SebhaTab> {
             height: MediaQuery.of(context).size.height / 20,
           ),
           Text(
-            'عدد التسبيحات',
+           AppLocalizations.of(context)!.tasbeh,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           Container(
@@ -72,7 +79,7 @@ class _SebhaTabState extends State<SebhaTab> {
             height: MediaQuery.of(context).size.height / 10.5,
             width: MediaQuery.of(context).size.width / 6,
             decoration: BoxDecoration(
-              color: AppTheme.lightprimary.withOpacity(0.6),
+              color: Theme.of(context).primaryColor.withOpacity(0.7),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Text(
@@ -85,16 +92,19 @@ class _SebhaTabState extends State<SebhaTab> {
             height: MediaQuery.of(context).size.height / 17,
             width: MediaQuery.of(context).size.width / 2.8,
             decoration: BoxDecoration(
-              color: AppTheme.lightprimary,
+              color: settingsProvider.themeMode == ThemeMode.light
+                  ? AppTheme.lightprimary
+                  : AppTheme.gold,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Text(
               lable,
               style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w400,
-                color: Colors.white,
-              ),
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
+                  color: settingsProvider.themeMode == ThemeMode.light
+                      ? AppTheme.white
+                      : AppTheme.black),
             ),
           ),
         ],

@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsTab extends StatelessWidget {
-  const SettingsTab({super.key});
-
   @override
   Widget build(BuildContext context) {
     SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
@@ -26,6 +24,7 @@ class SettingsTab extends StatelessWidget {
             ),
             value: settingsProvider.themeMode == ThemeMode.dark,
             onChanged: (isdark) {
+              
               settingsProvider.ChangeTheme(
                   isdark ? ThemeMode.dark : ThemeMode.light);
             },
@@ -66,9 +65,8 @@ class SettingsTab extends StatelessWidget {
                   ],
                   onChanged: (value) {
                     if (value == null) return;
-                    settingsProvider.ChangeLanguage(value);
+                    settingsProvider.changeLanguage(value);
                   },
-                  
                   dropdownColor: settingsProvider.themeMode == ThemeMode.light
                       ? AppTheme.white
                       : AppTheme.darkprimary,

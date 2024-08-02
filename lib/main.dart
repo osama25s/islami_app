@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       },
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale:Locale(settingsProvider.language) ,
+      locale: Locale(settingsProvider.language),
     );
   }
 }

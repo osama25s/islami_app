@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/tabs/quran/quran_tab.dart';
 import 'package:islami/tabs/settings/settings_provider.dart';
+import 'package:islami/wigets/loading_indicator.dart';
 import 'package:provider/provider.dart';
 
 class QuranDeatailsScreen extends StatefulWidget {
@@ -45,11 +46,7 @@ class _QuranDeatailsScreenState extends State<QuranDeatailsScreen> {
                   ? AppTheme.white
                   : AppTheme.darkprimary),
           child: ayat.isEmpty
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: AppTheme.lightprimary,
-                  ),
-                )
+              ? LoadingIndicator()
               : ListView.builder(
                   itemBuilder: (_, index) => Text(
                     ayat[index],

@@ -23,7 +23,6 @@ class HadethDetailsScreen extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          
           title: Text(
             data.title,
             style: Theme.of(context).textTheme.headlineSmall,

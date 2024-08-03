@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/home_screen.dart';
 import 'package:islami/tabs/hadeth/hadeth_details_screen.dart';

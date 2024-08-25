@@ -14,7 +14,8 @@ class SettingsProvider extends ChangeNotifier {
 
   void _loadPreferences() async {
     final prefs = await SharedPreferences.getInstance();
-    _themeMode = ThemeMode.values[prefs.getInt('themeMode') ?? 0];
+    _themeMode =
+        prefs.getBool("isdark") ?? false ? ThemeMode.dark : ThemeMode.light;
     _language = prefs.getString('language') ?? 'ar';
     notifyListeners();
   }
@@ -23,7 +24,7 @@ class SettingsProvider extends ChangeNotifier {
     _themeMode = selectedThemeMode;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('themeMode', selectedThemeMode.index);
+    await prefs.setBool('isdark', _themeMode == ThemeMode.dark);
   }
 
   void changeLanguage(String selectedLanguage) async {

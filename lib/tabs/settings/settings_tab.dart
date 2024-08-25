@@ -14,7 +14,7 @@ class SettingsTab extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SwitchListTile(
-            contentPadding: EdgeInsets.zero,
+            contentPadding: EdgeInsets.symmetric(horizontal: 4),
             title: Text(
               AppLocalizations.of(context)!.darktheme,
               style: Theme.of(context)
@@ -24,7 +24,6 @@ class SettingsTab extends StatelessWidget {
             ),
             value: settingsProvider.themeMode == ThemeMode.dark,
             onChanged: (isdark) {
-              
               settingsProvider.ChangeTheme(
                   isdark ? ThemeMode.dark : ThemeMode.light);
             },
@@ -32,48 +31,49 @@ class SettingsTab extends StatelessWidget {
             inactiveTrackColor: Colors.grey,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height / 32,
+            height: MediaQuery.of(context).size.height / 24,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.language,
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w500),
-              ),
-              DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  value: settingsProvider.language,
-                  items: [
-                    DropdownMenuItem(
-                      value: 'en',
-                      child: Text(
-                        AppLocalizations.of(context)!.english,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ),
-                    DropdownMenuItem(
-                      value: 'ar',
-                      child: Text(
-                        AppLocalizations.of(context)!.arabic,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ),
-                  ],
-                  onChanged: (value) {
-                    if (value == null) return;
-                    settingsProvider.changeLanguage(value);
-                  },
-                  dropdownColor: settingsProvider.themeMode == ThemeMode.light
-                      ? AppTheme.white
-                      : AppTheme.darkprimary,
-                  borderRadius: BorderRadius.circular(16),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 4),
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: settingsProvider.themeMode == ThemeMode.dark
+                      ? AppTheme.gold
+                      : AppTheme.lightprimary),
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: DropdownButton<String>(
+              iconEnabledColor: settingsProvider.themeMode == ThemeMode.dark
+                  ? AppTheme.white
+                  : AppTheme.black,
+              isExpanded: true,
+              underline: Container(),
+              value: settingsProvider.language,
+              items: [
+                DropdownMenuItem(
+                  value: 'en',
+                  child: Text(
+                    AppLocalizations.of(context)!.english,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 ),
-              ),
-            ],
+                DropdownMenuItem(
+                  value: 'ar',
+                  child: Text(
+                    AppLocalizations.of(context)!.arabic,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+              ],
+              onChanged: (value) {
+                if (value == null) return;
+                settingsProvider.changeLanguage(value);
+              },
+              dropdownColor: settingsProvider.themeMode == ThemeMode.light
+                  ? AppTheme.white
+                  : AppTheme.darkprimary,
+              borderRadius: BorderRadius.circular(16),
+            ),
           ),
         ],
       ),
